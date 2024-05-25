@@ -7,11 +7,13 @@ import com.khairililmi.speakgayo.data.remote.TranslateResponse
 import android.util.Log
 import com.khairililmi.speakgayo.data.local.favorite.FavoriteDao
 import com.khairililmi.speakgayo.data.local.favorite.FavoriteEntity
+import com.khairililmi.speakgayo.data.local.history.HistoryDao
+import com.khairililmi.speakgayo.data.local.history.HistoryEntity
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class TranslateRepository(private val favoriteDao: FavoriteDao) {
+class TranslateRepository(private val favoriteDao: FavoriteDao, private val historyDao:HistoryDao) {
 
     private val apiService: ApiService = ApiClient.service
     companion object{
@@ -61,5 +63,16 @@ class TranslateRepository(private val favoriteDao: FavoriteDao) {
     suspend fun addFavorite(favoriteEntity: FavoriteEntity) {
         favoriteDao.addFavorite(favoriteEntity)
     }
+
+    suspend fun addHistory(historyEntity: HistoryEntity) {
+        historyDao.addHistory(historyEntity)
+    }
+    suspend fun deleteOldestHistory() {
+        historyDao.deleteOldestHistory()
+    }
+    suspend fun getAllHistory(): List<HistoryEntity> {
+        return historyDao.getAllHistory()
+    }
+
 
 }

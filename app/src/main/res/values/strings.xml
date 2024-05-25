@@ -12,5 +12,7 @@
     <string name="isiOutput">Terjemahan</string>
     <string name="lang_gayo">Gayo</string>
     <string name="lang_indonesia">Indonesia</string>
+    <string name="n_found">Favorite Kosong</string>
+    <string name="n2_found">History Kosong</string>
 
 </resources>

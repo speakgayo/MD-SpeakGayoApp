@@ -12,11 +12,10 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.khairililmi.speakgayo.data.local.favorite.FavoriteEntity
+import com.khairililmi.speakgayo.data.local.history.AppHistoryDb
+import com.khairililmi.speakgayo.data.local.history.HistoryEntity
 import com.khairililmi.speakgayo.databinding.FragmentHomeBinding
 import com.khairililmi.speakgayo.ui.favorite.AppFavoriteDb
-import com.khairililmi.speakgayo.ui.favorite.FavoriteRepository
-import com.khairililmi.speakgayo.ui.favorite.FavoriteViewModel
-import com.khairililmi.speakgayo.ui.favorite.FavoriteViewModelFactory
 
 class HomeFragment : Fragment() {
 
@@ -37,7 +36,8 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val favoriteDao = AppFavoriteDb.getDatabase(requireContext()).favoriteDao()
-        val repository = TranslateRepository(favoriteDao)
+        val historyDao = AppHistoryDb.getDatabase(requireContext()).historyDao()
+        val repository = TranslateRepository(favoriteDao,historyDao)
         viewModel = ViewModelProvider(this, TranslateViewModelFactory(repository)).get(TranslateViewModel::class.java)
 
         binding.buttonTranslate.setOnClickListener {
@@ -48,6 +48,27 @@ class HomeFragment : Fragment() {
                 } else {
                     viewModel.translateGayoToIndo(textToTranslate)
                 }
+            }
+            viewModel.translatedText.observe(viewLifecycleOwner) { translatedText ->
+                val inputText = binding.editTextInput.text.toString()
+                val fromLang = binding.textFrom.text.toString()
+                val toLang = binding.textToLang.text.toString()
+                val outputText = translatedText ?: "Failed to translate"
+                if (inputText.isEmpty()) {
+                    Toast.makeText(requireContext(), "Anda belum menerjemahkan apapun", Toast.LENGTH_SHORT).show()
+                    return@observe
+                }
+                val fromLangAbbreviation = if (fromLang == "Indonesia") "In" else "gy"
+                val toLangAbbreviation = if (toLang == "Indonesia") "In" else "gy"
+                val historyEntity = HistoryEntity(
+                    inLang = fromLangAbbreviation,
+                    inLangHistory = inputText,
+                    gyLang = toLangAbbreviation,
+                    gyLangHistory = outputText
+                )
+                viewModel.addHistory(historyEntity)
+                Toast.makeText(requireContext(), "Data dimasukkan ke history", Toast.LENGTH_SHORT).show()
+                viewModel.translatedText.removeObservers(viewLifecycleOwner)
             }
         }
 
@@ -149,7 +170,7 @@ class HomeFragment : Fragment() {
     }
 
     private fun clearEditText() {
-        binding.editTextInput.text.clear()
+        binding.editTextInput.text?.clear()
         Toast.makeText(requireContext(), "Text direset", Toast.LENGTH_SHORT).show()
     }
 

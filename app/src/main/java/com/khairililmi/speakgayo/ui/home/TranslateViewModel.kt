@@ -5,6 +5,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.khairililmi.speakgayo.data.local.favorite.FavoriteEntity
+import com.khairililmi.speakgayo.data.local.history.HistoryEntity
 import com.khairililmi.speakgayo.data.remote.TranslateResponse
 import kotlinx.coroutines.launch
 import retrofit2.Call
@@ -52,5 +53,12 @@ class TranslateViewModel(private val repository: TranslateRepository) : ViewMode
             repository.addFavorite(favoriteEntity)
         }
     }
-
+    fun addHistory(historyEntity: HistoryEntity) {
+        viewModelScope.launch {
+            repository.addHistory(historyEntity)
+            if (repository.getAllHistory().size > 7) {
+                repository.deleteOldestHistory()
+            }
+        }
+    }
 }

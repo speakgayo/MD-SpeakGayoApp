@@ -11,10 +11,17 @@ class FavoriteViewModel (private val repository: FavoriteRepository): ViewModel(
     private val _favorites = MutableLiveData<List<FavoriteEntity>>()
     val favorites: LiveData<List<FavoriteEntity>> = _favorites
 
-    fun insertFavorite(favoriteEntity: FavoriteEntity) {
+    private val _isFavoriteDeleted = MutableLiveData<Boolean>()
+    val isFavoriteDeleted: LiveData<Boolean> = _isFavoriteDeleted
+
+    fun deleteFavorite(favoriteEntity: FavoriteEntity) {
         viewModelScope.launch {
-            repository.addFavorite(favoriteEntity)
+            repository.deleteFavorite(favoriteEntity)
+            _isFavoriteDeleted.value = true
         }
+    }
+    fun resetIsFavoriteDeleted() {
+        _isFavoriteDeleted.value = false
     }
     fun getAllFavorites() {
         viewModelScope.launch {

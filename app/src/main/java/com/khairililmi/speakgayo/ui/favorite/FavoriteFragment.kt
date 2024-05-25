@@ -5,10 +5,10 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.khairililmi.speakgayo.data.local.favorite.FavoriteEntity
 import com.khairililmi.speakgayo.databinding.FragmentFavoriteBinding
 
 class FavoriteFragment : Fragment() {
@@ -29,7 +29,11 @@ class FavoriteFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        favoriteAdapter = FavoriteAdapter()
+        favoriteAdapter = FavoriteAdapter { favorite ->
+            binding.progressBar.visibility = View.VISIBLE
+            favoriteViewModel.deleteFavorite(favorite)
+        }
+
         val favoriteDao = AppFavoriteDb.getDatabase(requireContext()).favoriteDao()
          val repository = FavoriteRepository(favoriteDao)
         favoriteViewModel = ViewModelProvider(this, FavoriteViewModelFactory(repository)).get(FavoriteViewModel::class.java)
@@ -38,10 +42,26 @@ class FavoriteFragment : Fragment() {
             layoutManager = LinearLayoutManager(context)
             adapter = favoriteAdapter
         }
-        favoriteViewModel.getAllFavorites()
+        binding.progressBar.visibility = View.VISIBLE
+        binding.tvNotFound.visibility = View.GONE
 
         favoriteViewModel.favorites.observe(viewLifecycleOwner) { favorites ->
-            favoriteAdapter.setData(favorites)
+            if (favorites.isEmpty()) {
+                binding.tvNotFound.visibility = View.VISIBLE
+            } else {
+                favoriteAdapter.setData(favorites)
+                binding.tvNotFound.visibility = View.GONE
+            }
+            binding.progressBar.visibility = View.GONE
         }
+        favoriteViewModel.getAllFavorites()
+        favoriteViewModel.isFavoriteDeleted.observe(viewLifecycleOwner) { isDeleted ->
+            if (isDeleted) {
+                favoriteViewModel.getAllFavorites()
+                binding.progressBar.visibility = View.VISIBLE
+                favoriteViewModel.resetIsFavoriteDeleted()
+            }
+        }
+
     }
 }

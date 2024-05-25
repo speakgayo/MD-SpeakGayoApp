@@ -5,8 +5,8 @@ import com.khairililmi.speakgayo.data.local.favorite.FavoriteEntity
 
 class FavoriteRepository(private val favoriteDao: FavoriteDao) {
 
-    suspend fun addFavorite(favoriteEntity: FavoriteEntity) {
-        favoriteDao.addFavorite(favoriteEntity)
+    suspend fun deleteFavorite(favoriteEntity: FavoriteEntity) {
+        favoriteDao.deleteFavorite(favoriteEntity)
     }
 
     suspend fun getAllFavorites(): List<FavoriteEntity> {
