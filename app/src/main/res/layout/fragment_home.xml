@@ -140,6 +140,7 @@
             android:paddingTop="10dp"
             tools:ignore="RtlSymmetry">
 
+<<<<<<< HEAD
             <com.khairililmi.speakgayo.customview.CustomEditText
                 android:id="@+id/editTextInput"
                 android:layout_width="match_parent"
@@ -157,6 +158,23 @@
                 android:textSize="14sp"
                 tools:ignore="VisualLintTextFieldSize" />
 
+=======
+            <EditText
+                android:id="@+id/editTextInput"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/isiInput"
+                android:inputType="text"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:maxLines="6"
+                android:maxLength="80"
+                android:fontFamily="@font/poppins_medium"
+                android:textColor="@color/black"
+                android:textSize="14sp"
+                android:autofillHints=""
+                tools:ignore="VisualLintTextFieldSize" />
+>>>>>>> 12aa3c1 (first commit md)
         </RelativeLayout>
         <RelativeLayout
             android:layout_width="match_parent"
@@ -232,9 +250,13 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:paddingEnd="20dp"
+<<<<<<< HEAD
             android:paddingTop="20dp"
             android:paddingBottom="20dp"
             android:paddingLeft="10dp"
+=======
+            android:paddingTop="10dp"
+>>>>>>> 12aa3c1 (first commit md)
             tools:ignore="RtlSymmetry">
 
             <TextView
@@ -257,7 +279,11 @@
             android:orientation="horizontal"
             android:layout_gravity="end"
             android:paddingEnd="20dp"
+<<<<<<< HEAD
             android:paddingTop="100dp"
+=======
+            android:paddingTop="120dp"
+>>>>>>> 12aa3c1 (first commit md)
             android:gravity="end"
             tools:ignore="ExtraText,RtlSymmetry">
 
