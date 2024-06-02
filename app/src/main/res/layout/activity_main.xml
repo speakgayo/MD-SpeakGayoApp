@@ -5,18 +5,19 @@
     android:id="@+id/container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingTop="20dp">
+    android:paddingTop="15dp">
 
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_marginBottom="60dp"
         android:id="@+id/frame_layout"/>
     <com.google.android.material.bottomappbar.BottomAppBar
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/bottomAppBar"
         android:layout_gravity="bottom"
-        android:background="@drawable/buttomcombine"
+        android:background="@android:color/transparent"
         app:fabCradleMargin="10dp"
         app:fabCradleRoundedCornerRadius="50dp"
         app:layout_constraintWidth_default="spread"
@@ -27,12 +28,13 @@
             android:id="@+id/nav_view"
             android:layout_marginEnd="20dp"
             app:labelVisibilityMode="labeled"
-            android:background="@drawable/buttomcombine"
+            android:background="@android:color/transparent"
             app:menu="@menu/bottom_nav_menu"
             tools:ignore="VisualLintBottomNav" />
     </com.google.android.material.bottomappbar.BottomAppBar>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/cameraNavigation"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:backgroundTint="@color/blue_bottom"
@@ -41,13 +43,5 @@
         app:maxImageSize="40dp"
         app:tint="@color/white"
         tools:ignore="ContentDescription,SpeakableTextPresentCheck" />
-<!--    <androidx.fragment.app.FragmentContainerView-->
-<!--        android:id="@+id/nav_host_fragment_activity_main"-->
-<!--        android:name="androidx.navigation.fragment.NavHostFragment"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="match_parent"-->
-<!--        app:defaultNavHost="true"-->
-<!--        app:navGraph="@navigation/mobile_navigation" />-->
-
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

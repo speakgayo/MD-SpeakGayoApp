@@ -44,7 +44,7 @@
 
             <TextView
                 android:id="@+id/inLangHistory"
-                android:layout_width="250dp"
+                android:layout_width="200dp"
                 android:layout_height="30dp"
                 android:layout_marginStart="20dp"
                 android:layout_marginTop="10dp"
@@ -58,9 +58,9 @@
                 android:layout_width="24dp"
                 android:layout_height="24dp"
                 android:layout_alignParentEnd="true"
+                android:layout_gravity="center"
                 android:layout_marginTop="5dp"
                 android:layout_marginEnd="10dp"
-                android:layout_gravity="center"
                 android:contentDescription="@string/fromLangLabel"
                 android:onClick="starButtonClick"
                 android:src="@drawable/star_blue"
@@ -94,7 +94,7 @@
 
             <TextView
                 android:id="@+id/gyLangHistory"
-                android:layout_width="250dp"
+                android:layout_width="200dp"
                 android:layout_height="30dp"
                 android:layout_marginStart="20dp"
                 android:layout_marginTop="10dp"

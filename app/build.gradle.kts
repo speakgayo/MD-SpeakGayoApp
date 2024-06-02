@@ -67,4 +67,11 @@ dependencies {
 
     implementation("androidx.room:room-ktx:2.4.0-rc01")
     ksp("androidx.room:room-compiler:2.4.0-rc01")
+
+    implementation("com.github.dhaval2404:imagepicker:2.1")
+
+    // recognize text
+    implementation("com.google.android.gms:play-services-mlkit-text-recognition:19.0.0")
+//    implementation ("com.google.mlkit:text-recognition:16.0.0")
+
 }

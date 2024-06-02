@@ -4,11 +4,22 @@ import android.content.ClipData
 import android.content.ClipboardManager
 import android.content.Context
 import android.content.Intent
+<<<<<<< HEAD
+import android.content.pm.PackageManager
 import android.os.Bundle
+import android.text.Editable
+=======
+import android.os.Bundle
+>>>>>>> 8d13816 (second)
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+<<<<<<< HEAD
+import androidx.core.app.ActivityCompat
+import androidx.core.content.ContextCompat
+=======
+>>>>>>> 8d13816 (second)
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.khairililmi.speakgayo.data.local.favorite.FavoriteEntity
@@ -16,13 +27,16 @@ import com.khairililmi.speakgayo.data.local.history.AppHistoryDb
 import com.khairililmi.speakgayo.data.local.history.HistoryEntity
 import com.khairililmi.speakgayo.databinding.FragmentHomeBinding
 import com.khairililmi.speakgayo.ui.favorite.AppFavoriteDb
+import com.khairililmi.speakgayo.ui.home.speech.SpeechToTextConverter
+import com.khairililmi.speakgayo.ui.home.speech.onRecognitionListener
 
-class HomeFragment : Fragment() {
+class HomeFragment : Fragment(), onRecognitionListener {
 
     private lateinit var binding: FragmentHomeBinding
     private lateinit var viewModel: TranslateViewModel
     private var fromLangText = "Indonesia"
     private var toLangText = "Gayo"
+    private lateinit var speechToTextConverter: SpeechToTextConverter
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -121,6 +135,27 @@ class HomeFragment : Fragment() {
         }
 
         updateLanguageLabels()
+
+        speechToTextConverter = SpeechToTextConverter(requireContext(), this)
+        if (ContextCompat.checkSelfPermission(
+                requireContext(),
+                android.Manifest.permission.RECORD_AUDIO
+            ) != PackageManager.PERMISSION_GRANTED
+        ) {
+            ActivityCompat.requestPermissions(
+                requireActivity(),
+                arrayOf(android.Manifest.permission.RECORD_AUDIO),
+                1
+            )
+        }
+
+        binding.recordImage.setOnClickListener {
+            speechToTextConverter.startListening("id")
+        }
+
+    }
+    fun setText(recognizedText: String) {
+        binding.editTextInput.setText(recognizedText)
     }
 
     fun onReplaceClicked() {
@@ -173,5 +208,44 @@ class HomeFragment : Fragment() {
         binding.editTextInput.text?.clear()
         Toast.makeText(requireContext(), "Text direset", Toast.LENGTH_SHORT).show()
     }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        speechToTextConverter.stopListening()
+    }
+    override fun onReadyForSpeech() {
+        binding.recordImage.visibility = View.GONE
+        binding.editTextInput.visibility = View.GONE
+        binding.buttonTranslate.visibility= View.GONE
+        binding.tvMessage.visibility = View.VISIBLE
+        binding.lavMicAnimation.visibility = View.VISIBLE
+    }
+    override fun onBeginningOfSpeech() {}
+    override fun onEndOfSpeech() {}
+    override fun onError(error: String) {
+        val context = context ?: return // Check if context is available
+        Toast.makeText(context, error, Toast.LENGTH_SHORT).show()
+
+        activity?.runOnUiThread {
+            binding.recordImage.visibility = View.VISIBLE
+            binding.editTextInput.visibility = View.VISIBLE
+            binding.buttonTranslate.visibility = View.VISIBLE
+            binding.editTextInput.text = Editable.Factory.getInstance().newEditable("Sorry, Please try again")
+            binding.tvMessage.visibility = View.GONE
+            binding.lavMicAnimation.visibility = View.GONE
+        }
+    }
+
+
+
+    override fun onResults(results: String) {
+        binding.recordImage.visibility = View.VISIBLE
+        binding.editTextInput.visibility = View.VISIBLE
+        binding.buttonTranslate.visibility = View.VISIBLE
+        binding.lavMicAnimation.visibility = View.GONE
+        binding.tvMessage.visibility = View.GONE
+        binding.editTextInput.text = Editable.Factory.getInstance().newEditable(results)
+    }
+
 
 }

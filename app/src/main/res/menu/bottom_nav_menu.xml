@@ -11,8 +11,8 @@
         android:title="@string/title_News" />
     <item
         android:id="@+id/fab"
-        android:icon="@drawable/baseline_camera_alt_24"
         android:title="" />
+
     <item
         android:id="@+id/navigation_favorite"
         android:icon="@drawable/baseline_star_outline_24"
