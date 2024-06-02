@@ -1,0 +1,5 @@
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:drawable="@drawable/shadow" />
+    <item android:drawable="@drawable/roundinput" />
+    <item android:drawable="@drawable/roundinput2"/>
+</layer-list>
