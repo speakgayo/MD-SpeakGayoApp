@@ -15,4 +15,8 @@
     <color name="bluetext">#003366</color>
     <color name="buttonTranslate">#FF6600</color>
     <color name="orange">#FF6600</color>
+    <color name="blue_bottom">#0080FF</color>
+    <color name="blue_bottom2">#0D0080FF</color>
+    <color name="white2">#FFFF</color>
+
 </resources>

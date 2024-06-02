@@ -1,13 +1,15 @@
 package com.khairililmi.speakgayo
 
 import android.os.Bundle
-import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.appcompat.app.AppCompatActivity
-import androidx.navigation.findNavController
-import androidx.navigation.ui.AppBarConfiguration
-import androidx.navigation.ui.setupActionBarWithNavController
-import androidx.navigation.ui.setupWithNavController
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentManager
+import androidx.fragment.app.FragmentTransaction
 import com.khairililmi.speakgayo.databinding.ActivityMainBinding
+import com.khairililmi.speakgayo.ui.favorite.FavoriteFragment
+import com.khairililmi.speakgayo.ui.history.HistoryFragment
+import com.khairililmi.speakgayo.ui.home.HomeFragment
+import com.khairililmi.speakgayo.ui.news.NewsFragment
 
 class MainActivity : AppCompatActivity() {
 
@@ -19,15 +21,30 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        val navView: BottomNavigationView = binding.navView
+        navigateToHomeFragment()
 
-        val navController = findNavController(R.id.nav_host_fragment_activity_main)
-        val appBarConfiguration = AppBarConfiguration(
-            setOf(
-                R.id.navigation_home, R.id.navigation_favorite, R.id.navigation_history
-            )
-        )
-        setupActionBarWithNavController(navController, appBarConfiguration)
-        navView.setupWithNavController(navController)
+        binding.navView.background = null
+
+        binding.navView.setOnItemSelectedListener { item ->
+            when (item.itemId) {
+                R.id.navigation_home -> replaceFragment(HomeFragment())
+                R.id.navigation_news -> replaceFragment(NewsFragment())
+                R.id.navigation_favorite -> replaceFragment(FavoriteFragment())
+                R.id.navigation_history -> replaceFragment(HistoryFragment())
+            }
+            true
+        }
+    }
+    private fun navigateToHomeFragment() {
+        val fragmentManager: FragmentManager = supportFragmentManager
+        val fragmentTransaction: FragmentTransaction = fragmentManager.beginTransaction()
+        fragmentTransaction.replace(R.id.frame_layout, HomeFragment())
+        fragmentTransaction.commit()
+    }
+    private fun replaceFragment(fragment: Fragment) {
+        val fragmentManager: FragmentManager = supportFragmentManager
+        val fragmentTransaction: FragmentTransaction = fragmentManager.beginTransaction()
+        fragmentTransaction.replace(R.id.frame_layout, fragment)
+        fragmentTransaction.commit()
     }
 }

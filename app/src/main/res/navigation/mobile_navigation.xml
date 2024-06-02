@@ -16,6 +16,11 @@
         android:name="com.khairililmi.speakgayo.ui.favorite.FavoriteFragment"
         android:label="@string/title_Favorite"
         tools:layout="@layout/fragment_favorite" />
+    <fragment
+        android:id="@+id/navigation_news"
+        android:name="com.khairililmi.speakgayo.ui.news.NewsFragment"
+        android:label="@string/title_News"
+        tools:layout="@layout/fragment_news" />
 
     <fragment
         android:id="@+id/navigation_history"
