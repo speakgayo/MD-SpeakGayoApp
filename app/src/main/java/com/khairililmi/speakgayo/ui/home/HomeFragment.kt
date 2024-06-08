@@ -4,22 +4,15 @@ import android.content.ClipData
 import android.content.ClipboardManager
 import android.content.Context
 import android.content.Intent
-<<<<<<< HEAD
 import android.content.pm.PackageManager
 import android.os.Bundle
 import android.text.Editable
-=======
-import android.os.Bundle
->>>>>>> 8d13816 (second)
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
-<<<<<<< HEAD
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
-=======
->>>>>>> 8d13816 (second)
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.khairililmi.speakgayo.data.local.favorite.FavoriteEntity

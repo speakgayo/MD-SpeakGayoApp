@@ -12,7 +12,6 @@
     <item
         android:id="@+id/fab"
         android:title="" />
-
     <item
         android:id="@+id/navigation_favorite"
         android:icon="@drawable/baseline_star_outline_24"

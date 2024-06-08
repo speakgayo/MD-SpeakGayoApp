@@ -35,14 +35,8 @@ class HistoryFragment : Fragment() {
                 historyViewModel.deleteHistory(history)
             },
             onFavoriteClickListener = { history ->
-                val favoriteEntity = FavoriteEntity(
-                    inLang = history.inLang,
-                    inLangFavorite = history.inLangHistory,
-                    gyLang = history.gyLang,
-                    gyLangFavorite = history.gyLangHistory
-                )
-                historyViewModel.insertFavorite(favoriteEntity)
-                Toast.makeText(requireContext(), "Added to favorites", Toast.LENGTH_SHORT).show()
+                binding.progressBar.visibility = View.VISIBLE
+                historyViewModel.updateFavoriteStatus(history)
             }
         )
 
@@ -50,8 +44,10 @@ class HistoryFragment : Fragment() {
         val historyDao = AppHistoryDb.getDatabase(requireContext()).historyDao()
         val favoriteDao = AppFavoriteDb.getDatabase(requireContext()).favoriteDao()
         val repository = HistoryRepository(historyDao,favoriteDao)
-        historyViewModel = ViewModelProvider(this, HistoryViewModelFactory(repository)).get(
-            HistoryViewModel::class.java)
+        historyViewModel = ViewModelProvider(
+            this,
+            HistoryViewModelFactory(repository, requireContext().applicationContext)
+        ).get(HistoryViewModel::class.java)
 
         binding.historyList.apply {
             layoutManager = LinearLayoutManager(context)
@@ -78,8 +74,5 @@ class HistoryFragment : Fragment() {
             }
         }
 
-
-
     }
-
 }

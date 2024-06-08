@@ -5,6 +5,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.khairililmi.speakgayo.R
 import com.khairililmi.speakgayo.data.local.history.HistoryEntity
 import com.khairililmi.speakgayo.databinding.HistoryItemBinding
 
@@ -49,17 +50,26 @@ class HistoryAdapter(private val onDeleteClickListener: (HistoryEntity) -> Unit,
                 if (position != RecyclerView.NO_POSITION) {
                     val history = history[position]
                     onFavoriteClickListener(history)
-                    Log.d(HISTORYADAPTER, "Item add: $history")
+                    val newFavoriteStatus = !history.isFavorite
+                    setStarImage(newFavoriteStatus)
                 }
             }
         }
+        fun setStarImage(isFavorite: Boolean) {
+            binding.starFavorite.setImageResource(
+                if (isFavorite) R.drawable.baseline_star_24_full
+                else R.drawable.star_blue
+            )
+        }
+
         fun bind(history: HistoryEntity) {
             binding.inLang.text = history.inLang
             binding.inLangHistory.text = history.inLangHistory
             binding.gyLang.text = history.gyLang
             binding.gyLangHistory.text = history.gyLangHistory
+            setStarImage(history.isFavorite)
 
-            // Jika Anda ingin melakukan binding untuk ImageView atau elemen lainnya, lakukan di sini.
+            // Jika Anda ing                    historyViewModel.saveFavoriteStatus(history.id, newFavoriteStatus)in melakukan binding untuk ImageView atau elemen lainnya, lakukan di sini.
             // Misalnya:
             // binding.starImage.setImageResource(data.starImageResId)
 

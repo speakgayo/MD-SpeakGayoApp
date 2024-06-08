@@ -12,4 +12,5 @@ class FavoriteRepository(private val favoriteDao: FavoriteDao) {
     suspend fun getAllFavorites(): List<FavoriteEntity> {
         return favoriteDao.getAllFavorites()
     }
+
 }

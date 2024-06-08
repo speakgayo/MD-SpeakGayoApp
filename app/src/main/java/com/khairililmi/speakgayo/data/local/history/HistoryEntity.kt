@@ -10,5 +10,6 @@ class HistoryEntity (
     val inLang: String,
     val inLangHistory: String,
     val gyLang: String,
-    val gyLangHistory: String
+    val gyLangHistory: String,
+    var isFavorite: Boolean = false
 )

@@ -53,6 +53,7 @@
                 android:text="Apa Kabar?"
                 android:textColor="@color/bluetext"
                 android:textSize="14sp" />
+
             <ImageView
                 android:id="@+id/starFavorite"
                 android:layout_width="24dp"

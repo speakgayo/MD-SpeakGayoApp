@@ -44,7 +44,6 @@ class CustomEditText : AppCompatEditText {
                         if (lineCount > 6) {
                             setText(text.split("\n").take(6).joinToString("\n"))
                             setSelection(text.length)
-<<<<<<< HEAD
                             showError("Tidak boleh lebih dari 6 baris")
                         } else {
                             hideError()
@@ -56,11 +55,6 @@ class CustomEditText : AppCompatEditText {
                             val trimmedText = words.take(8).joinToString(" ")
                             setText(trimmedText)
                             setSelection(trimmedText.length)
-=======
-                        }
-
-                        if (wordCount > 8) {
->>>>>>> 8d13816 (second)
                             showError("Tidak boleh lebih dari 8 kata")
                         } else {
                             hideError()
@@ -72,7 +66,6 @@ class CustomEditText : AppCompatEditText {
         })
     }
 
-<<<<<<< HEAD
     private fun countWords(text: String): Int {
         return text.split("\\s+".toRegex()).size
     }
@@ -81,8 +74,6 @@ class CustomEditText : AppCompatEditText {
         return text.split("\n").size
     }
 
-=======
->>>>>>> 8d13816 (second)
     private fun showError(errorMessage: String) {
         if (errorTextView == null) {
             createErrorTextView()
@@ -112,15 +103,4 @@ class CustomEditText : AppCompatEditText {
         val parentLayout = parent as? ViewGroup ?: return
         parentLayout.addView(errorTextView)
     }
-<<<<<<< HEAD
-=======
-
-    private fun countWords(text: String): Int {
-        return text.split("\\s+".toRegex()).size
-    }
-
-    private fun countLines(text: String): Int {
-        return text.split("\n").size
-    }
->>>>>>> 8d13816 (second)
 }
