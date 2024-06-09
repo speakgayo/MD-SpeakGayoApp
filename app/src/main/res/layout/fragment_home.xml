@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
+<<<<<<< HEAD
 <androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+=======
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+>>>>>>> 8d13816 (second)
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -8,9 +12,13 @@
 <LinearLayout
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+<<<<<<< HEAD
     android:background="@android:color/white"
     android:orientation="vertical">
 
+=======
+    android:orientation="vertical">
+>>>>>>> 8d13816 (second)
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
@@ -20,7 +28,11 @@
             android:layout_height="60dp"
             android:id="@+id/linear_layout"
             android:layout_marginStart="20dp"
+<<<<<<< HEAD
             android:layout_marginTop="8dp"
+=======
+            android:layout_marginTop="5dp"
+>>>>>>> 8d13816 (second)
             android:layout_marginEnd="20dp"
             android:background="@drawable/roundbg"
             android:orientation="horizontal"
@@ -38,7 +50,11 @@
                 android:paddingLeft="30dp"
                 android:textAlignment="center"
                 android:textColor="@color/white"
+<<<<<<< HEAD
                 android:textSize="14sp"
+=======
+                android:textSize="16sp"
+>>>>>>> 8d13816 (second)
                 tools:ignore="RtlHardcoded,RtlSymmetry" />
 
             <TextView
@@ -49,7 +65,11 @@
                 android:layout_margin="2dp"
                 android:layout_weight="2"
                 android:paddingStart="100dp"
+<<<<<<< HEAD
                 android:textSize="14sp"
+=======
+                android:textSize="16sp"
+>>>>>>> 8d13816 (second)
                 android:fontFamily="@font/poppins_medium"
                 android:text="@string/toLang"
                 android:textAlignment="center"
@@ -62,7 +82,11 @@
             android:layout_width="110dp"
             android:layout_height="108dp"
             android:layout_centerHorizontal="true"
+<<<<<<< HEAD
             android:layout_marginTop="-7dp"
+=======
+            android:layout_marginTop="-10dp"
+>>>>>>> 8d13816 (second)
             android:clickable="true"
             android:onClick="onReplaceClicked"
             android:src="@drawable/replace"
@@ -104,7 +128,11 @@
                 android:layout_height="24dp"
                 android:layout_alignParentEnd="true"
                 android:layout_marginTop="0dp"
+<<<<<<< HEAD
                 android:layout_marginEnd="160dp"
+=======
+                android:layout_marginEnd="200dp"
+>>>>>>> 8d13816 (second)
                 android:onClick="audioButtonClicked"
                 android:src="@drawable/audio"
                 tools:ignore="ContentDescription,SpeakableTextPresentCheck,SpeakableTextPresentCheck,TouchTargetSizeCheck" />
@@ -115,9 +143,15 @@
                 android:layout_height="20dp"
                 android:layout_alignParentEnd="true"
                 android:layout_marginTop="2dp"
+<<<<<<< HEAD
                 android:layout_marginEnd="135dp"
                 android:contentDescription="@string/fromLangLabel"
                 android:onClick="pasteButtonClicked"
+=======
+                android:layout_marginEnd="165dp"
+                android:contentDescription="@string/fromLangLabel"
+                android:onClick="cancelButtonClicked"
+>>>>>>> 8d13816 (second)
                 android:src="@drawable/paste_icon"
                 tools:ignore="TouchTargetSizeCheck,DuplicateSpeakableTextCheck" />
 
@@ -134,6 +168,7 @@
                 tools:ignore="TouchTargetSizeCheck,DuplicateSpeakableTextCheck" />
 
         </RelativeLayout>
+<<<<<<< HEAD
 
         <RelativeLayout
             android:id="@+id/layoutTengahInput"
@@ -141,6 +176,14 @@
             android:layout_height="120dp"
             android:paddingTop="10dp"
             android:paddingEnd="10dp"
+=======
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingEnd="10dp"
+            android:paddingBottom="70dp"
+            android:paddingTop="10dp"
+>>>>>>> 8d13816 (second)
             tools:ignore="RtlSymmetry">
 
             <com.khairililmi.speakgayo.customview.CustomEditText
@@ -160,6 +203,7 @@
                 android:textSize="14sp"
                 tools:ignore="VisualLintTextFieldSize" />
 
+<<<<<<< HEAD
             <com.airbnb.lottie.LottieAnimationView
                 android:id="@+id/lav_mic_animation"
                 android:layout_width="149dp"
@@ -175,6 +219,8 @@
                 app:lottie_rawRes="@raw/anim_mic_recording"
                 tools:visibility="visible" />
 
+=======
+>>>>>>> 8d13816 (second)
         </RelativeLayout>
         <RelativeLayout
             android:layout_width="match_parent"
@@ -183,6 +229,7 @@
             android:paddingTop="10dp"
             tools:ignore="ExtraText,RtlSymmetry">
 
+<<<<<<< HEAD
             <ImageView
                 android:id="@+id/recordImage"
                 android:layout_width="40dp"
@@ -195,20 +242,30 @@
                 android:src="@drawable/monogram"
                 tools:ignore="ContentDescription,SpeakableTextPresentCheck,SpeakableTextPresentCheck,TouchTargetSizeCheck" />
 
+=======
+>>>>>>> 8d13816 (second)
             <com.google.android.material.button.MaterialButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"
                 android:layout_gravity="center"
                 android:id="@+id/buttonTranslate"
+<<<<<<< HEAD
                 android:layout_marginEnd="5dp"
                 android:backgroundTint="@color/buttonTranslate"
                 android:fontFamily="@font/poppins_medium"
                 android:minWidth="140dp"
+=======
+                android:layout_marginEnd="17dp"
+                android:backgroundTint="@color/buttonTranslate"
+                android:fontFamily="@font/poppins_medium"
+                android:minWidth="150dp"
+>>>>>>> 8d13816 (second)
                 android:minHeight="48dp"
                 android:text="@string/terjemahkan"
                 android:textAlignment="center"
                 android:textAllCaps="false"
+<<<<<<< HEAD
                 android:textSize="12sp"
                 android:textStyle="normal"
                 app:cornerRadius="100dp"
@@ -227,6 +284,12 @@
                 app:layout_constraintStart_toStartOf="parent"
                 tools:visibility="visible" />
 
+=======
+                android:textSize="14sp"
+                android:textStyle="normal"
+                app:cornerRadius="100dp"
+                tools:ignore="TextContrastCheck" />
+>>>>>>> 8d13816 (second)
         </RelativeLayout>
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -266,7 +329,11 @@
                 android:layout_height="24dp"
                 android:layout_alignParentEnd="true"
                 android:layout_marginTop="0dp"
+<<<<<<< HEAD
                 android:layout_marginEnd="160dp"
+=======
+                android:layout_marginEnd="200dp"
+>>>>>>> 8d13816 (second)
                 android:src="@drawable/audio"
                 tools:ignore="ContentDescription" />
 
@@ -278,7 +345,11 @@
             android:paddingEnd="20dp"
             android:paddingTop="20dp"
             android:paddingBottom="20dp"
+<<<<<<< HEAD
             android:paddingStart="10dp"
+=======
+            android:paddingLeft="10dp"
+>>>>>>> 8d13816 (second)
             tools:ignore="RtlSymmetry">
 
             <TextView
@@ -290,8 +361,12 @@
                 android:layout_marginStart="20dp"
                 android:layout_marginEnd="40dp"
                 android:fontFamily="@font/poppins_medium"
+<<<<<<< HEAD
                 android:text=""
                 android:hint="@string/isiOutput"
+=======
+                android:text="@string/isiOutput"
+>>>>>>> 8d13816 (second)
                 android:textColor="@color/black"
                 android:textSize="14sp"
                 tools:ignore="TextSizeCheck" />
@@ -345,4 +420,8 @@
 </LinearLayout>
 
 
+<<<<<<< HEAD
 </androidx.core.widget.NestedScrollView>
+=======
+</ScrollView>
+>>>>>>> 8d13816 (second)

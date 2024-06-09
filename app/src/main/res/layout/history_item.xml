@@ -44,7 +44,11 @@
 
             <TextView
                 android:id="@+id/inLangHistory"
+<<<<<<< HEAD
                 android:layout_width="200dp"
+=======
+                android:layout_width="250dp"
+>>>>>>> 8d13816 (second)
                 android:layout_height="30dp"
                 android:layout_marginStart="20dp"
                 android:layout_marginTop="10dp"
@@ -53,15 +57,24 @@
                 android:text="Apa Kabar?"
                 android:textColor="@color/bluetext"
                 android:textSize="14sp" />
+<<<<<<< HEAD
 
+=======
+>>>>>>> 8d13816 (second)
             <ImageView
                 android:id="@+id/starFavorite"
                 android:layout_width="24dp"
                 android:layout_height="24dp"
                 android:layout_alignParentEnd="true"
+<<<<<<< HEAD
                 android:layout_gravity="center"
                 android:layout_marginTop="5dp"
                 android:layout_marginEnd="10dp"
+=======
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="10dp"
+                android:layout_gravity="center"
+>>>>>>> 8d13816 (second)
                 android:contentDescription="@string/fromLangLabel"
                 android:onClick="starButtonClick"
                 android:src="@drawable/star_blue"
@@ -95,7 +108,11 @@
 
             <TextView
                 android:id="@+id/gyLangHistory"
+<<<<<<< HEAD
                 android:layout_width="200dp"
+=======
+                android:layout_width="250dp"
+>>>>>>> 8d13816 (second)
                 android:layout_height="30dp"
                 android:layout_marginStart="20dp"
                 android:layout_marginTop="10dp"

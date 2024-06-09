@@ -44,7 +44,11 @@
 
             <TextView
                 android:id="@+id/inLangFavorite"
+<<<<<<< HEAD
                 android:layout_width="200dp"
+=======
+                android:layout_width="250dp"
+>>>>>>> 8d13816 (second)
                 android:layout_height="30dp"
                 android:layout_marginStart="20dp"
                 android:layout_marginTop="10dp"

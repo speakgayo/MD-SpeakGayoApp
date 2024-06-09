@@ -3,7 +3,10 @@
     <string name="title_home">Home</string>
     <string name="title_Favorite">Favorite</string>
     <string name="title_History">History</string>
+<<<<<<< HEAD
     <string name="title_News">News</string>
+=======
+>>>>>>> 8d13816 (second)
     <string name="fromLang">FromLang</string>
     <string name="toLang">ToLang</string>
     <string name="fromLangLabel">Indonesia</string>
@@ -15,6 +18,7 @@
     <string name="lang_indonesia">Indonesia</string>
     <string name="n_found">Favorite Kosong</string>
     <string name="n2_found">History Kosong</string>
+<<<<<<< HEAD
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="speak_now">Bicara bro</string>

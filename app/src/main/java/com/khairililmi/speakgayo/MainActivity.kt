@@ -1,5 +1,6 @@
 package com.khairililmi.speakgayo
 
+<<<<<<< HEAD
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
@@ -19,13 +20,26 @@ import com.khairililmi.speakgayo.ui.history.HistoryFragment
 import com.khairililmi.speakgayo.ui.home.HomeFragment
 import com.khairililmi.speakgayo.ui.news.NewsFragment
 import java.io.IOException
+=======
+import android.os.Bundle
+import com.google.android.material.bottomnavigation.BottomNavigationView
+import androidx.appcompat.app.AppCompatActivity
+import androidx.navigation.findNavController
+import androidx.navigation.ui.AppBarConfiguration
+import androidx.navigation.ui.setupActionBarWithNavController
+import androidx.navigation.ui.setupWithNavController
+import com.khairililmi.speakgayo.databinding.ActivityMainBinding
+>>>>>>> 8d13816 (second)
 
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
+<<<<<<< HEAD
     private var textRecognizer: TextRecognizer? = null
     private var imageUri: Uri? = null
     private val REQUEST_CODE_PICK_IMAGE = 100
+=======
+>>>>>>> 8d13816 (second)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -33,6 +47,7 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+<<<<<<< HEAD
         navigateToHomeFragment()
 
         binding.navView.background = null
@@ -109,3 +124,17 @@ class MainActivity : AppCompatActivity() {
         fragmentTransaction.commit()
     }
 }
+=======
+        val navView: BottomNavigationView = binding.navView
+
+        val navController = findNavController(R.id.nav_host_fragment_activity_main)
+        val appBarConfiguration = AppBarConfiguration(
+            setOf(
+                R.id.navigation_home, R.id.navigation_favorite, R.id.navigation_history
+            )
+        )
+        setupActionBarWithNavController(navController, appBarConfiguration)
+        navView.setupWithNavController(navController)
+    }
+}
+>>>>>>> 8d13816 (second)
